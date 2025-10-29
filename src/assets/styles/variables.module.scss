@@ -1,135 +1,88 @@
-// 全局SCSS变量
+// css全局变量 已在vite中引入 可直接使用
 :root {
-  --menuBg: #304156;
-  --menuColor: #bfcbd9;
-  --menuActiveText: #f4f4f5;
-  --menuHover: #263445;
-
-  --subMenuBg: #1f2d3d;
-  --subMenuActiveText: #f4f4f5;
-  --subMenuHover: #001528;
-  --subMenuTitleHover: #293444;
-
-  --fixedHeaderBg: #ffffff;
-  --tableHeaderBg: #f8f8f9;
-  --tableHeaderTextColor: #515a6e;
-
-  // ele
-  --brder-color: #e8e8e8;
-
-  // 添加 tag 相关变量
-  --tags-view-active-bg: var(--el-color-primary);
-  --tags-view-active-border-color: var(--el-color-primary);
-}
-
-html.dark {
-  --menuBg: #1d1e1f;
-  --menuColor: #bfcbd9;
-  --menuActiveText: #f4f4f5;
-  --menuHover: #171819;
-
-  --subMenuBg: #1d1e1f;
-  --subMenuActiveText: #1d1e1f;
-  --subMenuHover: #171819;
-  --subMenuTitleHover: #171819;
-
-  --fixedHeaderBg: #171819;
-  --tableHeaderBg: var(--el-bg-color);
-  --tableHeaderTextColor: var(--el-text-color);
-
-  // 覆盖ele 高亮当前行的标准暗色
-  .el-tree-node__content {
-    --el-color-primary-light-9: #262727;
-  }
-
-  .el-button--primary {
-    --el-button-bg-color: var(--el-color-primary-dark-6);
-    --el-button-border-color: var(--el-color-primary-light-2);
-  }
-
-  .el-switch {
-    --el-switch-on-color: var(--el-color-primary-dark-6);
-    --el-switch-border-color: var(--el-color-primary-light-2);
-  }
-
-  .el-tag--primary {
-    --el-tag-bg-color: var(--el-color-primary-dark-6);
-    --el-tag-border-color: var(--el-color-primary-light-2);
-  }
-
-  // 在深色模式下使用更深的颜色
-  --tags-view-active-bg: var(--el-color-primary-dark-6);
-  --tags-view-active-border-color: var(--el-color-primary-light-2);
-  // vxe-table 主题
-  --vxe-font-color: #98989e;
-  --vxe-primary-color: #2c7ecf;
-  --vxe-icon-background-color: #98989e;
-  --vxe-table-font-color: #98989e;
-  --vxe-table-resizable-color: #95969a;
-  --vxe-table-header-background-color: #28282a;
-  --vxe-table-body-background-color: #151518;
-  --vxe-table-background-color: #4a5663;
-  --vxe-table-border-width: 1px;
-  --vxe-table-border-color: #37373a;
-  --vxe-toolbar-background-color: #37373a;
-
-  // ele
-  --brder-color: #37373a;
-}
-
-// base color
-$blue: #324157;
-$light-blue: #3a71a8;
-$red: #c03639;
-$pink: #e65d6e;
-$green: #30b08f;
-$tiffany: #4ab7bd;
-$yellow: #fec171;
-$panGreen: #30b08f;
-
-// 默认菜单主题风格
-$base-menu-color: var(--menuColor);
-$base-menu-hover: var(--menuHover);
-$base-menu-color-active: var(--menuActiveText);
-$base-menu-background: var(--menuBg);
-$base-logo-title-color: #ffffff;
-
-$base-menu-light-color: rgba(0, 0, 0, 0.7);
-$base-menu-light-background: #ffffff;
-$base-logo-light-title-color: #001529;
-
-$base-sub-menu-background: var(--subMenuBg);
-$base-sub-menu-hover: var(--subMenuHover);
-$base-sub-menu-title-hover: var(--subMenuTitleHover);
-// 表单头背景色和标题颜色
-$fixed-header-bg: var(--fixedHeaderBg);
-$table-header-bg: var(--tableHeaderBg);
-$table-header-text-color: var(--tableHeaderTextColor);
-
-$--color-primary: #409eff;
-$--color-success: #67c23a;
-$--color-warning: #e6a23c;
-$--color-danger: #f56c6c;
-$--color-info: #909399;
-
-$base-sidebar-width: 240px;
-
-// the :export directive is the magic sauce for webpack
-// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
-:export {
-  menuColor: $base-menu-color;
-  menuLightColor: $base-menu-light-color;
-  menuColorActive: $base-menu-color-active;
-  menuBackground: $base-menu-background;
-  menuLightBackground: $base-menu-light-background;
-  subMenuBackground: $base-sub-menu-background;
-  subMenuHover: $base-sub-menu-hover;
-  sideBarWidth: $base-sidebar-width;
-  logoTitleColor: $base-logo-title-color;
-  logoLightTitleColor: $base-logo-light-title-color;
-  primaryColor: $--color-primary;
-  successColor: $--color-success;
-  dangerColor: $--color-danger;
-  infoColor: $--color-info;
-  warningColor: $--color-warning;
-}
+	// Color Palette
+	--tem-black: #000;
+	--tem-white: #fff;
+	--tem-radius: 8px;
+	--tem-text-color-1: #333333;
+	--tem-text-color-2: #666666;
+	--tem-gray-1: #f7f8fa;
+	--tem-gray-2: #f2f3f5;
+	--tem-gray-3: #ebedf0;
+	--tem-gray-4: #dcdee0;
+	--tem-gray-5: #c8c9cc;
+	--tem-gray-6: #969799;
+	--tem-gray-7: #646566;
+	--tem-gray-8: #323233;
+	--tem-gray-bg: #F3F5F9;
+	--tem-red: #FF6E6E;
+	--tem-blue: #5A53F5;
+	--tem-blue-edu: #316EB7;
+	--tem-orange: #FFA700;
+	--tem-green: #28CE3E;
+	}
+	
+	// 全局颜色定义
+	$colorBlack: var(--tem-black);
+	$colorWhite: var(--tem-white);
+	$textColor1: var(--tem-text-color-1);
+	$textColor2: var(--tem-text-color-2);
+	$colorGray1: var(--tem-gray-1);
+	$colorGray2: var(--tem-gray-2);
+	$colorGray3: var(--tem-gray-3);
+	$colorGray4: var(--tem-gray-4);
+	$colorGray5: var(--tem-gray-5);
+	$colorGray6: var(--tem-gray-6);
+	$colorGray7: var(--tem-gray-7);
+	$colorGray8: var(--tem-gray-8);
+	$colorGrayBg: var(--tem-gray-bg);
+	$colorRed: var(--tem-red);
+	$colorBlue: var(--tem-blue);
+	$colorBlueEdu: var(--tem-blue-edu);
+	$colorOrange: var(--tem-orange);
+	$colorGreen: var(--tem-green);
+	
+	// 全局文字大小行高定义
+	// 小标题
+	.text-sub-title {
+		font-size: 18px;
+		line-height: 30px;
+		&-b {
+			font-weight: bold;
+		}
+	}
+	// 小标题/正文
+	.text-body1 {
+		font-size: 16px;
+		line-height: 24px;
+		&-b {
+			font-weight: bold;
+		}
+	}
+	// 正文2
+	.text-body2 {
+		font-size: 14px;
+		line-height: 20px;
+		&-b {
+			font-weight: bold;
+		}
+	}
+	// 解释说明1
+	.text-des1 {
+		font-size: 12px;
+		line-height: 18px;
+		&-b {
+			font-weight: bold;
+		}
+	}
+	// 解释说明2
+	.text-des2 {
+		font-size: 10px;
+		line-height: 16px;
+		&-b {
+			font-weight: bold;
+		}
+	}
+	
+	// 全局圆角定义
+	$temBorderRadius: var(--tem-radius);

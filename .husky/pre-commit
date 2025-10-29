@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# 获取当前Node.js版本
+current_version=$(node -v | cut -d v -f 2)
+
+# 设置比较的目标版本
+target_version=20
+
+# 使用bash的内置比较操作符进行比较
+if [ "$(echo "$current_version $target_version" | awk '{print ($1 > $2)}')" -eq 1 ]; then
+  # 当前Node.js版本大于20
+	npx lint-staged
+else
+	# 当前Node.js版本小于20
+	echo "当前node版本为: $current_version ,不执行代码检查, 需要node版本大于20"
+	exit 1
+fi

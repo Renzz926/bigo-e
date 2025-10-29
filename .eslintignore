@@ -1,0 +1,12 @@
+
+dist
+node_modules
+public
+
+src/assets
+
+.eslintrc.cjs
+.prettierrc.cjs
+.stylelintrc.cjs
+auto-imports.d.ts
+components.d.ts

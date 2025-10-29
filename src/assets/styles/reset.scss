@@ -1,0 +1,42 @@
+body {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Helvetica Neue,
+    PingFang SC,
+    Microsoft YaHei,
+    Source Han Sans SC,
+    Noto Sans CJK SC,
+    WenQuanYi Micro Hei,
+    sans-serif;
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+* {
+  word-break: break-all;
+  line-break: anywhere;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-color: currentcolor;
+  border-style: solid;
+  border-width: 0;
+}
+
+html {
+  box-sizing: border-box;
+}

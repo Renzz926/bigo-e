@@ -1,0 +1,8 @@
+@import './variables.module.scss';
+
+:export {
+	colorBlue: $colorBlue;
+	colorRed: $colorRed;
+	colorBlueEdu: $colorBlueEdu;
+	temBorderRadius: $temBorderRadius;
+}

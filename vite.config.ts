@@ -1,85 +1,112 @@
-import { defineConfig, loadEnv } from 'vite';
-import createPlugins from './vite/plugins';
-import autoprefixer from 'autoprefixer'; // css自动添加兼容性前缀
-import { lazyImport, VxeResolver } from 'vite-plugin-lazy-import';
-import path from 'path';
+import type { UserConfig, ConfigEnv } from "vite";
+import { fileURLToPath, URL } from "node:url";
+import vue from "@vitejs/plugin-vue"; // Vue 3 单文件组件支持
+import AutoImport from "unplugin-auto-import/vite";
+import postCssPxToRem from "postcss-pxtorem";
+import postcssPresetEnv from "postcss-preset-env";
+import { loadEnv } from "vite";
+import { wrapperEnv } from "./build/utils";
+import { createProxy } from "./build/vite/proxy";
+import Components from "unplugin-vue-components/vite";
+import { VantResolver } from "@vant/auto-import-resolver";
+import { createVitePlugins } from "./build/vite/plugin";
 
-export default defineConfig(({ mode, command }) => {
-  const env = loadEnv(mode, process.cwd());
+// https://vitejs.dev/config/
+export default ({ command, mode }: ConfigEnv): UserConfig => {
+  const isBuild = command === "build";
+  const root = process.cwd(); // 当前node执行的工作目录
+  const env = loadEnv(mode, root); // import.meta.env 是在运行时获取环境变量的值；loadEnv 则是在构建时加载环境变量
+  const viteEnv = wrapperEnv(env);
+  const { VITE_PUBLIC_PATH_CDN, VITE_DROP_CONSOLE_DEBUGGER, VITE_PORT, VITE_PROXY, VITE_BUILD_MODE } = viteEnv;
+
   return {
-    // 部署生产环境和开发环境下的URL。
-    // 默认情况下，vite 会假设你的应用是被部署在一个域名的根路径上
-    base: env.VITE_APP_CONTEXT_PATH,
+    root,
+    base: isBuild ? VITE_PUBLIC_PATH_CDN : "/", // 开发或生产环境服务的公共基础路径
+    define: {
+      // 定义全局常量替换方式，不经过任何语法分析，直接替换文本
+    },
+    plugins: [
+      vue(),
+      // 自动导入
+      AutoImport({
+        imports: ["vue", "vue-router", "pinia"],
+        eslintrc: {
+          enabled: true,
+          filepath: "./.eslintrc-auto-import.json",
+          globalsPropValue: true,
+        },
+      }),
+      // 自动导入组件
+      Components({
+        resolvers: [
+          // 自动导入vant样式 不包含Toast，Dialog，Notify和ImagePreview组件
+          VantResolver(),
+        ],
+      }),
+      ...createVitePlugins(viteEnv, isBuild),
+    ],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './src')
+        "@": fileURLToPath(new URL("./src", import.meta.url)),
+        "#": fileURLToPath(new URL("./types", import.meta.url)),
       },
-      extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue']
-    },
-    // https://cn.vitejs.dev/config/#resolve-extensions
-    plugins: [
-      ...createPlugins(env, command === 'build'),
-      lazyImport({
-        resolvers: [
-          VxeResolver({
-            libraryName: 'vxe-table'
-          }),
-          VxeResolver({
-            libraryName: 'vxe-pc-ui'
-          })
-        ]
-      })
-    ],
-    server: {
-      host: '0.0.0.0',
-      port: Number(env.VITE_APP_PORT),
-      open: true,
-      proxy: {
-        [env.VITE_APP_BASE_API]: {
-          target: 'http://localhost:8009',
-          changeOrigin: true,
-          ws: true,
-          rewrite: (path) => path.replace(new RegExp('^' + env.VITE_APP_BASE_API), '')
-        }
-      }
     },
     css: {
+      // CSS 预处理器
       preprocessorOptions: {
+        //define global scss variable
         scss: {
-          // additionalData: '@use "@/assets/styles/variables.module.scss as *";'
-          // javascriptEnabled: true
-          api: 'modern-compiler'
-        }
+          javascriptEnabled: true,
+          additionalData: `
+						@use "@/assets/styles/variables.module.scss" as *;
+					`,
+        },
       },
+      devSourcemap: true,
       postcss: {
         plugins: [
-          // 浏览器兼容性
-          autoprefixer(),
-          {
-            postcssPlugin: 'internal:charset-removal',
-            AtRule: {
-              charset: (atRule) => {
-                atRule.remove();
-              }
-            }
-          }
-        ]
-      }
+          postCssPxToRem({
+            // rootValue({ file }) {
+            //   return file.indexOf("vant") !== -1 ? 37.5 : 75; // 如果设计稿使用750的写法
+            // },
+            rootValue: 37.5,
+            // 需要进行转换的css属性的值
+            propList: ["*"],
+          }),
+          // 为css样式添加浏览器前缀
+          postcssPresetEnv(),
+        ],
+      },
     },
-    // 预编译
+    esbuild: {
+      pure: VITE_DROP_CONSOLE_DEBUGGER ? ["console.log", "debugger"] : [],
+      // drop: VITE_DROP_CONSOLE_DEBUGGER ? ["console", "debugger"] : [],
+    },
+    clearScreen: true, // 默认为true,设为 false 可以避免 Vite 清屏而错过在终端中打印某些关键信息。命令行模式下可以通过 --clearScreen false 设置。
+    server: {
+      host: "0.0.0.0", // 监听所有地址，包括局域网和公网地址。
+      port: VITE_PORT,
+      open: true,
+      proxy: createProxy(VITE_PROXY),
+    },
+    build: {
+      target: "es2015", // 设置最终构建的浏览器兼容目标
+      cssTarget: "chrome52", // 允许用户为 CSS 的压缩设置一个不同的浏览器 target
+      assetsInlineLimit: 4096, // 4096 = 4k 小于此阈值的导入或引用资源将内联为 base64 编码，以避免额外的 http 请求。设置为 0 可以完全禁用此项。如果你指定了 build.lib，那么 build.assetsInlineLimit 将被忽略，无论文件大小，资源都会被内联。
+      cssCodeSplit: true, // 启用/禁用 CSS 代码拆分。当启用时，在异步 chunk 中导入的 CSS 将内联到异步 chunk 本身，并在其被加载时插入。如果禁用，整个项目中的所有 CSS 将被提取到一个 CSS 文件中。
+      chunkSizeWarningLimit: 2000, // 默认500， chunk 大小警告的限制（以 kbs 为单位）。
+      reportCompressedSize: VITE_BUILD_MODE === "developemnt", // 启用/禁用 gzip 压缩大小报告。压缩大型输出文件可能会很慢，因此禁用该功能可能会提高大型项目的构建性能。
+      rollupOptions: {
+        output: {
+          entryFileNames: `assets/[name]-[hash].js`,
+          chunkFileNames: `assets/[name]-[hash].js`,
+          assetFileNames: `assets/[name]-[hash].[ext]`,
+        },
+      },
+    },
+    // 依赖优化选项
     optimizeDeps: {
-      include: [
-        'vue',
-        'vue-router',
-        'pinia',
-        'axios',
-        '@vueuse/core',
-        'echarts',
-        'vue-i18n',
-        '@vueup/vue-quill',
-        'image-conversion',
-        'element-plus/es/components/**/css'
-      ]
-    }
+      include: [], // 默认情况下，不在 node_modules 中的，链接的包不会被预构建。使用此选项可强制预构建链接的包。
+    },
   };
-});
+};

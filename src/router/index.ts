@@ -1,46 +1,51 @@
-import { createWebHistory, createRouter, RouteRecordRaw } from 'vue-router';
-/* Layout */
-import Layout from '@/layout/index.vue';
-import i18n from '@/lang/index';
+import { createRouter, createWebHistory } from "vue-router";
+import type { RouteRecordRaw } from "vue-router";
+import useUserStore from "@/store/modules/user";
 
-// 公共路由
-export const constantRoutes: RouteRecordRaw[] = [
+const routes: RouteRecordRaw[] = [
   {
-    path: '/401',
-    component: () => import('@/views/error/401.vue'),
-    hidden: true
-  },
-  {
-    path: '',
-    redirect: '/index',
-    component: Layout,
+    path: "/",
+    component: () => import("@/layouts/DefaultLayout.vue"),
+    redirect: "h5",
     children: [
       {
-        path: '/index',
-        component: () => import('@/views/index.vue'),
-        name: 'Index',
-        meta: { title: i18n.global.t('route.dashboard'), icon: 'dashboard', affix: true }
-      }
-    ]
-  }
+        path: "h5",
+        name: "Home",
+        component: () => import("@/views/Home.vue"),
+        meta: {
+          title: "首页",
+          isTabPage: true,
+        },
+      },
+    ],
+  },
 ];
 
-// 动态路由，基于用户权限动态去加载
-export const dynamicRoutes: RouteRecordRaw[] = [];
+const redirectRoutes: RouteRecordRaw[] = [{ path: "/:pathMatch(.*)*", redirect: "/" }];
 
-/**
- * 创建路由
- */
 const router = createRouter({
-  history: createWebHistory(import.meta.env.VITE_APP_CONTEXT_PATH),
-  routes: constantRoutes,
-  // 刷新时，滚动条位置还原
-  scrollBehavior(to, from, savedPosition) {
-    if (savedPosition) {
-      return savedPosition;
-    }
-    return { top: 0 };
+  history: createWebHistory(),
+  routes: [
+    ...routes,
+    ...redirectRoutes, // 重定向放在最后一项，不需要可去掉
+  ],
+  scrollBehavior() {
+    return { left: 0, top: 0 };
+  },
+});
+
+router.beforeEach(({ meta }, _, next) => {
+  const userStore = useUserStore();
+  if (meta.loginAuth && !userStore.isLogin) {
+    next({ name: "Login" });
+  } else {
+    next();
   }
+});
+
+router.afterEach((to) => {
+  const title = (to.meta && to.meta.title) || import.meta.env.VUE_APP_TITLE;
+  document.title = title;
 });
 
 export default router;
