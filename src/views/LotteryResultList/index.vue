@@ -153,13 +153,11 @@ const active = ref("GREEDY");
 .game-info {
   display: flex;
   flex-direction: column;
-  margin-right: 8px;
-  margin-left: 5px;
+  margin: 0 5px;
 }
 
 .game-tags {
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 
@@ -180,17 +178,11 @@ const active = ref("GREEDY");
   }
 }
 
-.game-tag-1 {
-  font-size: 16px;
-  font-weight: 700;
-  color: #ff5b2b;
-}
-
 .game-tag-2 {
+  flex-shrink: 0;
   position: relative;
   display: inline-block;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 15px;
   color: #666;
 }
 

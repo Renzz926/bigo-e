@@ -60,6 +60,9 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.van-tabbar {
+  padding: 5px 0 12px;
+}
 .layout-default {
   width: 100%;
   min-height: 100vh;
@@ -70,7 +73,7 @@ onMounted(() => {
   }
 
   &.padding-bottom {
-    padding-bottom: 50px;
+    padding-bottom: 64px;
   }
 
   .bar-name {
