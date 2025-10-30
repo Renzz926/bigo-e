@@ -9,17 +9,9 @@
         <span class="brand-name"> BIGO&ELE </span>
       </div>
       <div class="promotion-content">
-        <div class="promotion-container">
-          <div class="title-section">
-            <span class="season-title"> GREEDY新赛季开后 </span>
-            <span class="region-tag"> SH </span>
-            <ElButton size="small" round="round" class="activity-button"> 限时活动 </ElButton>
-          </div>
-          <span class="promotion-description">
-            全新食物主题轮盘上线，更多倍率奖励等你来赢！首次登录即送500INR 虚拟货币
-          </span>
-        </div>
-        <Indicator :total="5" :current="0" class="cls-indicator" />
+        <van-swipe class="my-swipe" :autoplay="2000" indicator-color="#FF5B2B">
+          <van-swipe-item v-for="(item, index) in 4" :key="index"></van-swipe-item>
+        </van-swipe>
       </div>
     </div>
     <div class="food-theme-section">
@@ -74,13 +66,24 @@ export default {};
 }
 
 .promotion-content {
-  display: flex;
-  flex-direction: column;
-  padding: 80px 28px 8px 12px;
-  background-image: url("https://mdn.alipayobjects.com/fecodex_image/afts/img/cwE7SqXPvxYAAAAAUPAAAAgAejH3AQBr/original");
-  background-size: cover;
 }
 
+.my-swipe .van-swipe-item {
+  height: 160px;
+  background: url("../../assets/images/banner.png") no-repeat center;
+  background-size: cover;
+  position: relative;
+  &::after{
+    content: '';
+    position: absolute;
+    bottom: 52px;
+    right: 128px;
+    width: 70px;
+    height: 20px;
+    background: url('../../assets/images/btn.png') no-repeat center;
+    background-size: 100% 100%;
+  }
+}
 .title-section {
   display: flex;
   flex-direction: row;
@@ -116,11 +119,6 @@ export default {};
   margin-top: 2px;
   font-size: 12px;
   color: #fff;
-}
-
-.cls-indicator {
-  align-self: center;
-  margin-top: 2px;
 }
 
 .food-theme-section {
