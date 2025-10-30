@@ -13,16 +13,16 @@
     <div class="lottery-content">
       <div class="game-info">
         <div class="game-tags">
-          <span @click="active = 'GREEDY'" :class="`game-tag-2 ${active === 'GREEDY' ? 'active' : ''}`"> GREEDY </span>
-          <span @click="active = 'CAT OR DOG'" :class="`game-tag-2 ${active === 'CAT OR DOG' ? 'active' : ''}`">
+          <div @click="active = 'GREEDY'" :class="`game-tag-2 ${active === 'GREEDY' ? 'active' : ''}`">GREEDY</div>
+          <div @click="active = 'CAT OR DOG'" :class="`game-tag-2 ${active === 'CAT OR DOG' ? 'active' : ''}`">
             CAT OR DOG
-          </span>
-          <span
+          </div>
+          <div
             @click="active = 'Ele-Family Games'"
             :class="`game-tag-2 ${active === 'Ele-Family Games' ? 'active' : ''}`"
           >
             Ele-Family Games
-          </span>
+          </div>
         </div>
         <div class="update-info">
           <span class="update-label"> 更新： </span>
@@ -143,7 +143,7 @@ const active = ref("GREEDY");
 .lottery-content {
   display: flex;
   flex-direction: column;
-  padding: 18px 4px 12px;
+  padding: 18px 8px 12px;
   margin-top: 8px;
   margin-right: 2px;
   background-color: #fff;
@@ -151,9 +151,6 @@ const active = ref("GREEDY");
 }
 
 .game-info {
-  display: flex;
-  flex-direction: column;
-  margin: 0 5px;
 }
 
 .game-tags {
@@ -181,9 +178,9 @@ const active = ref("GREEDY");
 .game-tag-2 {
   flex-shrink: 0;
   position: relative;
-  display: inline-block;
   font-size: 15px;
   color: #666;
+  white-space: nowrap;
 }
 
 .update-info {
@@ -211,7 +208,6 @@ const active = ref("GREEDY");
   display: flex;
   flex-direction: column;
   gap: 18;
-  padding: 2px 5px 5px;
   margin-top: 12px;
 }
 
