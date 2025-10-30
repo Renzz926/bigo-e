@@ -1,33 +1,33 @@
 <template>
-  <div :class="$style['wrapper-2']">
-    <div :class="$style['promotion-container']">
-      <div :class="$style['brand-header']">
+  <div class="wrapper-2">
+    <div class="promotion-container">
+      <div class="brand-header">
         <img
           src="https://mdn.alipayobjects.com/fecodex_image/afts/img/4Yq1Qpk3CzgAAAAAQBAAAAgAejH3AQBr/original"
-          :class="$style['brand-logo']"
+          class="brand-logo"
         />
-        <span :class="$style['brand-name']"> BIGO&ELE </span>
+        <span class="brand-name"> BIGO&ELE </span>
       </div>
-      <div :class="$style['promotion-content']">
-        <div :class="$style['promotion-container']">
-          <div :class="$style['title-section']">
-            <span :class="$style['season-title']"> GREEDY新赛季开后 </span>
-            <span :class="$style['region-tag']"> SH </span>
-            <ElButton size="small" round="round" :class="$style['activity-button']"> 限时活动 </ElButton>
+      <div class="promotion-content">
+        <div class="promotion-container">
+          <div class="title-section">
+            <span class="season-title"> GREEDY新赛季开后 </span>
+            <span class="region-tag"> SH </span>
+            <ElButton size="small" round="round" class="activity-button"> 限时活动 </ElButton>
           </div>
-          <span :class="$style['promotion-description']">
+          <span class="promotion-description">
             全新食物主题轮盘上线，更多倍率奖励等你来赢！首次登录即送500INR 虚拟货币
           </span>
         </div>
-        <Indicator :total="5" :current="0" :class="$style['cls-indicator']" />
+        <Indicator :total="5" :current="0" class="cls-indicator" />
       </div>
     </div>
-    <div :class="$style['food-theme-section']">
+    <div class="food-theme-section">
       <img
         src="https://mdn.alipayobjects.com/fecodex_image/afts/img/BjLAR70KgkkAAAAAQCAAAAgAejH3AQBr/original"
-        :class="$style['food-theme-image']"
+        class="food-theme-image"
       />
-      <span :class="$style['food-theme-description']"> 全新食物主题轮盘上线，更多倍率奖励等你来赢 </span>
+      <span class="food-theme-description">全新食物主题轮盘上线，更多倍率奖励等你来赢！</span>
     </div>
   </div>
 </template>
@@ -36,14 +36,11 @@
 export default {};
 </script>
 
-<style module>
+<style scoped lang="scss">
 .wrapper-2 {
   display: flex;
   flex-direction: column;
-  width: 374px;
-  padding-top: 10px;
-  padding-right: 2px;
-  padding-bottom: 4px;
+  width: 100%;
   background-color: #fff;
 }
 
@@ -54,10 +51,12 @@ export default {};
 
 .brand-header {
   display: flex;
-  flex-direction: row;
   align-items: center;
   align-self: flex-start;
+  height: 44px;
   margin-left: 15px;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .brand-logo {
@@ -78,7 +77,6 @@ export default {};
   display: flex;
   flex-direction: column;
   padding: 80px 28px 8px 12px;
-  margin-top: 8px;
   background-image: url("https://mdn.alipayobjects.com/fecodex_image/afts/img/cwE7SqXPvxYAAAAAUPAAAAgAejH3AQBr/original");
   background-size: cover;
 }
@@ -127,9 +125,9 @@ export default {};
 
 .food-theme-section {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  padding: 5px 12px 4px;
+  height: 28px;
+  padding-left: 14px;
   background-color: #fff5e6;
   border-radius: 2px;
 }
@@ -143,8 +141,7 @@ export default {};
 
 .food-theme-description {
   margin-left: 8px;
-  font-size: 12px;
+  font-size: 14px;
   color: #ff5b2b;
-  white-space: nowrap;
 }
 </style>

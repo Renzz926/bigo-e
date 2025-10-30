@@ -1,44 +1,44 @@
 <template>
-  <div :class="$style['wrapper-5']">
-    <span :class="$style['download-link-label']"> 下载链接 </span>
-    <div :class="$style['link-container']">
-      <div :class="$style['link-item']">
+  <div class="wrapper-5">
+    <span class="download-link-label"> 下载链接 </span>
+    <div class="link-container">
+      <div class="link-item">
         <img
           src="https://mdn.alipayobjects.com/fecodex_image/afts/img/481mS7Omwe0AAAAAQLAAAAgAejH3AQBr/original"
-          :class="$style['link-icon']"
+          class="link-icon"
         />
-        <div :class="$style['link-content']">
+        <div class="link-content">
           <img
             src="https://mdn.alipayobjects.com/fecodex_image/afts/img/NcWKR4-ZkMcAAAAAMCAAAAgAejH3AQBr/original"
-            :class="$style['link-indicator']"
+            class="link-indicator"
           />
-          <span :class="$style['link-text']"> 链接1 </span>
+          <span class="link-text"> 链接1 </span>
         </div>
       </div>
-      <div :class="$style['link-item-2']">
+      <div class="link-item-2">
         <img
           src="https://mdn.alipayobjects.com/fecodex_image/afts/img/qy6YSLVt7O4AAAAAQIAAAAgAejH3AQBr/original"
-          :class="$style['link-icon-2']"
+          class="link-icon-2"
         />
-        <div :class="$style['link-content']">
+        <div class="link-content">
           <img
             src="https://mdn.alipayobjects.com/fecodex_image/afts/img/NcWKR4-ZkMcAAAAAMCAAAAgAejH3AQBr/original"
-            :class="$style['link-indicator']"
+            class="link-indicator"
           />
-          <span :class="$style['link-text']"> 链接2 </span>
+          <span class="link-text"> 链接2 </span>
         </div>
       </div>
-      <div :class="$style['link-item-2']">
+      <div class="link-item-2" style="margin-right: 0">
         <img
           src="https://mdn.alipayobjects.com/fecodex_image/afts/img/3AzgSbq1cq8AAAAAQHAAAAgAejH3AQBr/original"
-          :class="$style['link-icon-2']"
+          class="link-icon-2"
         />
-        <div :class="$style['link-content']">
+        <div class="link-content">
           <img
             src="https://mdn.alipayobjects.com/fecodex_image/afts/img/NcWKR4-ZkMcAAAAAMCAAAAgAejH3AQBr/original"
-            :class="$style['link-indicator']"
+            class="link-indicator"
           />
-          <span :class="$style['link-text']"> 链接3 </span>
+          <span class="link-text"> 链接3 </span>
         </div>
       </div>
     </div>
@@ -49,7 +49,7 @@
 export default {};
 </script>
 
-<style module>
+<style scoped lang="scss">
 .wrapper-5 {
   display: flex;
   flex-direction: column;
@@ -79,7 +79,8 @@ export default {};
   flex: 1;
   flex-direction: row;
   align-items: center;
-  padding: 2px 12px 2px 4px;
+  padding: 4px 12px 4px 4px;
+  margin-right: 12px;
   background-color: #fff;
   border-radius: 6px;
 }
@@ -87,7 +88,7 @@ export default {};
 .link-icon {
   flex-shrink: 0;
   width: 40px;
-  height: 42px;
+  height: 40px;
   border-radius: 5px;
 }
 
@@ -118,7 +119,8 @@ export default {};
   flex: 1;
   flex-direction: row;
   align-items: center;
-  padding: 2px 10px 2px 4px;
+  padding: 4px 10px 4px 4px;
+  margin-right: 12px;
   background-color: #fff;
   border-radius: 5px;
 }
@@ -126,7 +128,7 @@ export default {};
 .link-icon-2 {
   flex-shrink: 0;
   width: 40px;
-  height: 42px;
+  height: 40px;
   border-radius: 3px;
 }
 </style>

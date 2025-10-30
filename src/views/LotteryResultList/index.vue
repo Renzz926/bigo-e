@@ -1,83 +1,90 @@
 <template>
-  <div :class="$style['wrapper-3']">
-    <div :class="$style['lottery-header']">
-      <span :class="$style['result-title']"> 开奖结果 </span>
-      <div :class="$style['filter-section']">
-        <span :class="$style['filter-all']"> 全部 </span>
+  <div class="wrapper-3">
+    <div class="lottery-header">
+      <span class="result-title"> 开奖结果 </span>
+      <div class="filter-section">
+        <span class="filter-all"> 全部 </span>
         <img
           src="https://mdn.alipayobjects.com/fecodex_image/afts/img/iFiYT5U7dWEAAAAAHOAAAAgAejH3AQBr/original"
-          :class="$style['filter-icon']"
+          class="filter-icon"
         />
       </div>
     </div>
-    <div :class="$style['lottery-content']">
-      <div :class="$style['game-info']">
-        <div :class="$style['game-tags']">
-          <span :class="$style['game-tag-1']"> GREEDY </span>
-          <span :class="$style['game-tag-2']"> CAT OR DOG </span>
-          <span :class="$style['game-tag-2']"> Ele-Family Games </span>
+    <div class="lottery-content">
+      <div class="game-info">
+        <div class="game-tags">
+          <span @click="active = 'GREEDY'" :class="`game-tag-2 ${active === 'GREEDY' ? 'active' : ''}`"> GREEDY </span>
+          <span @click="active = 'CAT OR DOG'" :class="`game-tag-2 ${active === 'CAT OR DOG' ? 'active' : ''}`">
+            CAT OR DOG
+          </span>
+          <span
+            @click="active = 'Ele-Family Games'"
+            :class="`game-tag-2 ${active === 'Ele-Family Games' ? 'active' : ''}`"
+          >
+            Ele-Family Games
+          </span>
         </div>
-        <div :class="$style['update-info']">
-          <span :class="$style['update-label']"> 更新： </span>
-          <span :class="$style['update-time']"> 2025年10月11日9:05 </span>
+        <div class="update-info">
+          <span class="update-label"> 更新： </span>
+          <span class="update-time"> 2025年10月11日9:05 </span>
         </div>
       </div>
-      <div :class="$style['lottery-items']">
-        <div :class="$style['lottery-item-1']">
-          <div :class="$style['filter-section']">
-            <div :class="$style['filter-section']">
-              <div :class="$style['item-time-id-1']">
-                <span :class="$style['item-time-1']"> 15:30:22 </span>
-                <span :class="$style['item-id-1']"> G20230512-001 </span>
+      <div class="lottery-items">
+        <div class="lottery-item-1">
+          <div class="filter-section">
+            <div class="filter-section">
+              <div class="item-time-id-1">
+                <span class="item-time-1"> 15:30:22 </span>
+                <span class="item-id-1"> G20230512-001 </span>
               </div>
               <img
                 src="https://mdn.alipayobjects.com/fecodex_image/afts/img/RWUdRY-qSAQAAAAAQDAAAAgAejH3AQBr/original"
-                :class="$style['item-icon-1']"
+                class="item-icon-1"
               />
             </div>
-            <span :class="$style['item-name-1']"> 鸡腿 </span>
+            <span class="item-name-1"> 鸡腿 </span>
           </div>
-          <div :class="$style['filter-section']">
-            <span :class="$style['item-multiplier-1']"> 2.45X </span>
-            <span :class="$style['item-status-1']"> 已开奖 </span>
+          <div class="filter-section">
+            <span class="item-multiplier-1"> 2.45X </span>
+            <span class="item-status-1"> 已开奖 </span>
           </div>
         </div>
-        <div :class="$style['lottery-item-2']">
-          <div :class="$style['filter-section']">
-            <div :class="$style['filter-section']">
-              <div :class="$style['item-time-id-1']">
-                <span :class="$style['item-time-1']"> 15:30:22 </span>
-                <span :class="$style['item-id-1']"> G20230512-001 </span>
+        <div class="lottery-item-2">
+          <div class="filter-section">
+            <div class="filter-section">
+              <div class="item-time-id-1">
+                <span class="item-time-1"> 15:30:22 </span>
+                <span class="item-id-1"> G20230512-001 </span>
               </div>
               <img
                 src="https://mdn.alipayobjects.com/fecodex_image/afts/img/L6mIS5QCpskAAAAAQEAAAAgAejH3AQBr/original"
-                :class="$style['item-icon-2']"
+                class="item-icon-2"
               />
             </div>
-            <span :class="$style['item-name-1']"> 热狗 </span>
+            <span class="item-name-1"> 热狗 </span>
           </div>
-          <div :class="$style['filter-section']">
-            <span :class="$style['item-multiplier-1']"> 2.45X </span>
-            <span :class="$style['item-status-1']"> 已开奖 </span>
+          <div class="filter-section">
+            <span class="item-multiplier-1"> 2.45X </span>
+            <span class="item-status-1"> 已开奖 </span>
           </div>
         </div>
-        <div :class="$style['lottery-item-3']">
-          <div :class="$style['filter-section']">
-            <div :class="$style['filter-section']">
-              <div :class="$style['item-time-id-1']">
-                <span :class="$style['item-time-1']"> 15:30:22 </span>
-                <span :class="$style['item-id-1']"> G20230512-001 </span>
+        <div class="lottery-item-3">
+          <div class="filter-section">
+            <div class="filter-section">
+              <div class="item-time-id-1">
+                <span class="item-time-1"> 15:30:22 </span>
+                <span class="item-id-1"> G20230512-001 </span>
               </div>
               <img
                 src="https://mdn.alipayobjects.com/fecodex_image/afts/img/Ove0QL1g9FcAAAAAQEAAAAgAejH3AQBr/original"
-                :class="$style['item-icon-3']"
+                class="item-icon-3"
               />
             </div>
-            <span :class="$style['item-name-1']"> 烤串 </span>
+            <span class="item-name-1"> 烤串 </span>
           </div>
-          <div :class="$style['filter-section']">
-            <span :class="$style['item-multiplier-1']"> 2.45X </span>
-            <span :class="$style['item-status-1']"> 已开奖 </span>
+          <div class="filter-section">
+            <span class="item-multiplier-1"> 2.45X </span>
+            <span class="item-status-1"> 已开奖 </span>
           </div>
         </div>
       </div>
@@ -85,16 +92,16 @@
   </div>
 </template>
 
-<script>
-export default {};
+<script lang="ts" setup>
+const active = ref("GREEDY");
 </script>
 
-<style module>
+<style scoped lang="scss">
 .wrapper-3 {
   display: flex;
   flex-direction: column;
-  width: 374px;
-  padding: 10px 10px 10px 12px;
+  width: 100%;
+  padding: 20px 10px 0 12px;
   background-color: #f6f6f6;
 }
 
@@ -109,8 +116,8 @@ export default {};
 
 .result-title {
   font-size: 18px;
+  font-weight: 600;
   color: #333;
-  white-space: nowrap;
 }
 
 .filter-section {
@@ -155,20 +162,36 @@ export default {};
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+
+  .active {
+    font-weight: 600;
+    color: #ff5b2b;
+
+    &::after {
+      position: absolute;
+      bottom: -8px;
+      left: calc(50% - 6px);
+      width: 14px;
+      height: 8px;
+      content: "";
+      background: url("../../assets/images/icon_1.png") no-repeat center;
+      background-size: 100% 100%;
+    }
+  }
 }
 
 .game-tag-1 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: #ff5b2b;
-  white-space: nowrap;
 }
 
 .game-tag-2 {
-  font-size: 14px;
-  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
   color: #666;
-  white-space: nowrap;
 }
 
 .update-info {
@@ -205,9 +228,8 @@ export default {};
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-color: #f2f2f2;
-  border-bottom-style: solid;
-  border-bottom-width: 2;
+  padding: 12px 0;
+  border-bottom: 1px solid #ededed;
 }
 
 .item-time-id-1 {
@@ -262,10 +284,9 @@ export default {};
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 12px 0;
   margin-right: 2px;
-  border-color: #f2f2f2;
-  border-bottom-style: solid;
-  border-bottom-width: 2;
+  border-bottom: 1px solid #ededed;
 }
 
 .item-icon-2 {
@@ -281,6 +302,7 @@ export default {};
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 12px 0 0;
   margin-right: 2px;
 }
 

@@ -1,80 +1,80 @@
 <template>
-  <div :class="$style['wrapper-4']">
-    <div :class="$style['strategy-guide-header']">
-      <span :class="$style['hot-strategies-title']"> 热门攻略 </span>
-      <div :class="$style['header-actions']">
-        <span :class="$style['all-strategies-link']"> 全部 </span>
+  <div class="wrapper-4">
+    <div class="strategy-guide-header">
+      <span class="hot-strategies-title"> 热门攻略 </span>
+      <div class="header-actions">
+        <span class="all-strategies-link"> 全部 </span>
         <img
           src="https://mdn.alipayobjects.com/fecodex_image/afts/img/P6f7SYpd1TAAAAAAHJAAAAgAejH3AQBr/original"
-          :class="$style['arrow-icon']"
+          class="arrow-icon"
         />
       </div>
     </div>
-    <div :class="$style['strategy-list']">
-      <div :class="$style['strategy-item']">
-        <div :class="$style['strategy-content']">
+    <div class="strategy-list">
+      <div class="strategy-item">
+        <div class="strategy-content">
           <img
             src="https://mdn.alipayobjects.com/fecodex_image/afts/img/5bApSYFfwk0AAAAAQBAAAAgAejH3AQBr/original"
-            :class="$style['strategy-thumbnail']"
+            class="strategy-thumbnail"
           />
-          <div :class="$style['strategy-text']">
-            <span :class="$style['strategy-title']"> GREEDY食物选择策 </span>
-            <span :class="$style['strategy-subtitle']"> 略 </span>
+          <div class="strategy-text">
+            <span class="strategy-title"> GREEDY食物选择策 </span>
+            <span class="strategy-title"> 略</span>
           </div>
         </div>
         <img
           src="https://mdn.alipayobjects.com/fecodex_image/afts/img/BNGfRIuj-m4AAAAAQCAAAAgAejH3AQBr/original"
-          :class="$style['strategy-bookmark']"
+          class="strategy-bookmark"
         />
       </div>
-      <div :class="$style['strategy-item-2']">
-        <div :class="$style['strategy-content']">
+      <div class="strategy-item-2">
+        <div class="strategy-content">
           <img
             src="https://mdn.alipayobjects.com/fecodex_image/afts/img/qToyQ7fls5gAAAAAQBAAAAgAejH3AQBr/original"
-            :class="$style['strategy-thumbnail']"
+            class="strategy-thumbnail"
           />
-          <div :class="$style['strategy-text']">
-            <span :class="$style['strategy-title-2']"> CATOR DOG倍率分 </span>
-            <span :class="$style['strategy-subtitle-2']"> 析 </span>
+          <div class="strategy-text">
+            <span class="strategy-title-2"> CATOR DOG倍率分 </span>
+            <span class="strategy-title-2"> 析</span>
           </div>
         </div>
         <img
           src="https://mdn.alipayobjects.com/fecodex_image/afts/img/Os2-Q5KaF88AAAAAQCAAAAgAejH3AQBr/original"
-          :class="$style['strategy-bookmark-2']"
+          class="strategy-bookmark-2"
         />
       </div>
     </div>
-    <div :class="$style['strategy-list-2']">
-      <div :class="$style['strategy-item']">
-        <div :class="$style['strategy-content-3']">
+    <div class="strategy-list-2">
+      <div class="strategy-item">
+        <div class="strategy-content-3">
           <img
             src="https://mdn.alipayobjects.com/fecodex_image/afts/img/qToyQ7fls5gAAAAAQBAAAAgAejH3AQBr/original"
-            :class="$style['strategy-thumbnail']"
+            class="strategy-thumbnail"
           />
-          <span :class="$style['strategy-title-3']">
+          <span class="strategy-title-3">
             Ele-Family Games最佳阵容
             <div />
           </span>
         </div>
         <img
           src="https://mdn.alipayobjects.com/fecodex_image/afts/img/f95MSLhISe8AAAAAQCAAAAgAejH3AQBr/original"
-          :class="$style['strategy-bookmark-3']"
+          class="strategy-bookmark-3"
         />
       </div>
-      <div :class="$style['strategy-item-4']">
-        <div :class="$style['strategy-content-4']">
+      <div class="strategy-item-4">
+        <div class="strategy-content-4">
           <img
             src="https://mdn.alipayobjects.com/fecodex_image/afts/img/qToyQ7fls5gAAAAAQBAAAAgAejH3AQBr/original"
-            :class="$style['strategy-thumbnail']"
+            class="strategy-thumbnail"
           />
-          <span :class="$style['strategy-description']">
+          <span class="strategy-description">
             Ele-Family Games最佳阵容，超详细...
             <div />
           </span>
         </div>
         <img
           src="https://mdn.alipayobjects.com/fecodex_image/afts/img/yHO8TY7IqmYAAAAAQCAAAAgAejH3AQBr/original"
-          :class="$style['strategy-bookmark-3']"
+          class="strategy-bookmark-3"
         />
       </div>
     </div>
@@ -85,12 +85,12 @@
 export default {};
 </script>
 
-<style module>
+<style scoped lang="scss">
 .wrapper-4 {
   display: flex;
   flex-direction: column;
   width: 374px;
-  padding: 4px 10px 10px 12px;
+  padding: 14px 10px 10px 12px;
   margin-top: 2px;
   background-color: #f6f6f6;
 }
@@ -106,8 +106,8 @@ export default {};
 
 .hot-strategies-title {
   font-size: 18px;
+  font-weight: 600;
   color: #333;
-  white-space: nowrap;
 }
 
 .header-actions {
@@ -170,7 +170,6 @@ export default {};
 .strategy-title {
   margin-left: 2px;
   font-size: 12px;
-  font-weight: 700;
   color: #333;
   white-space: nowrap;
 }
@@ -203,7 +202,6 @@ export default {};
 .strategy-title-2 {
   margin-left: 4px;
   font-size: 12px;
-  font-weight: 700;
   color: #333;
   white-space: nowrap;
 }
@@ -241,7 +239,6 @@ export default {};
   align-self: center;
   margin-left: 2px;
   font-size: 12px;
-  font-weight: 700;
   color: #333;
 }
 
@@ -275,7 +272,6 @@ export default {};
   align-self: center;
   margin-left: 4px;
   font-size: 12px;
-  font-weight: 700;
   color: #333;
 }
 </style>
