@@ -33,8 +33,8 @@ export default {
     },
   },
   food: {
-    chickenLeg: "Coxa de Frango",
-    hotDog: "Cachorro-Quente",
+    chickenLeg: "Coxa de",
+    hotDog: "Cachorro",
     skewer: "Espetinho",
   },
   language: {
