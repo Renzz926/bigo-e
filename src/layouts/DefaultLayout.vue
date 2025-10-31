@@ -7,25 +7,25 @@
     <router-view v-else />
     <van-tabbar v-if="page.isTabPage" v-model="active">
       <van-tabbar-item replace to="/h5" icon="home-o" name="0">
-        <span :class="`bar-name ${active === '0' ? 'active' : ''}`">首页</span>
+        <span :class="`bar-name ${active === '0' ? 'active' : ''}`">{{ $t("tab.home") }}</span>
         <template #icon="{ active }">
           <img :src="active ? tab1 : tab11" alt="" class="bar-icon" />
         </template>
       </van-tabbar-item>
       <van-tabbar-item replace to="/mine" icon="manager-o" name="1">
-        <span :class="`bar-name ${active === '1' ? 'active' : ''}`">试玩</span>
+        <span :class="`bar-name ${active === '1' ? 'active' : ''}`">{{ $t("tab.trial") }}</span>
         <template #icon="{ active }">
           <img :src="active ? tab2 : tab22" alt="" class="bar-icon" />
         </template>
       </van-tabbar-item>
       <van-tabbar-item replace to="/mine" icon="manager-o" name="2">
-        <span :class="`bar-name ${active === '2' ? 'active' : ''}`">数据</span>
+        <span :class="`bar-name ${active === '2' ? 'active' : ''}`">{{ $t("tab.data") }}</span>
         <template #icon="{ active }">
           <img :src="active ? tab3 : tab33" alt="" class="bar-icon" />
         </template>
       </van-tabbar-item>
       <van-tabbar-item replace to="/mine" icon="manager-o" name="3">
-        <span :class="`bar-name ${active === '3' ? 'active' : ''}`">赛事</span>
+        <span :class="`bar-name ${active === '3' ? 'active' : ''}`">{{ $t("tab.event") }}</span>
         <template #icon="{ active }">
           <img :src="active ? tab4 : tab44" alt="" class="bar-icon" />
         </template>

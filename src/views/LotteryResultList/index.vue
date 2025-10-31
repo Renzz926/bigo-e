@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper-3">
     <div class="lottery-header">
-      <span class="result-title"> 开奖结果 </span>
+      <span class="result-title"> {{ $t("views.lottery.title") }} </span>
       <div class="filter-section">
-        <span class="filter-all"> 全部 </span>
+        <span class="filter-all"> {{ $t("common.all") }} </span>
         <img
           src="https://mdn.alipayobjects.com/fecodex_image/afts/img/iFiYT5U7dWEAAAAAHOAAAAgAejH3AQBr/original"
           class="filter-icon"
@@ -25,8 +25,8 @@
           </div>
         </div>
         <div class="update-info">
-          <span class="update-label"> 更新： </span>
-          <span class="update-time"> 2025年10月11日9:05 </span>
+          <span class="update-label"> {{ $t("common.update") }} </span>
+          <span class="update-time"> 2025-10-11 9:05 </span>
         </div>
       </div>
       <div class="lottery-items">
@@ -42,11 +42,11 @@
                 class="item-icon-1"
               />
             </div>
-            <span class="item-name-1"> 鸡腿 </span>
+            <span class="item-name-1"> {{ $t("food.chickenLeg") }} </span>
           </div>
           <div class="filter-section">
             <span class="item-multiplier-1"> 2.45X </span>
-            <span class="item-status-1"> 已开奖 </span>
+            <span class="item-status-1"> {{ $t("views.lottery.opened") }} </span>
           </div>
         </div>
         <div class="lottery-item-2">
@@ -61,11 +61,11 @@
                 class="item-icon-2"
               />
             </div>
-            <span class="item-name-1"> 热狗 </span>
+            <span class="item-name-1"> {{ $t("food.hotDog") }} </span>
           </div>
           <div class="filter-section">
             <span class="item-multiplier-1"> 2.45X </span>
-            <span class="item-status-1"> 已开奖 </span>
+            <span class="item-status-1"> {{ $t("views.lottery.opened") }} </span>
           </div>
         </div>
         <div class="lottery-item-3">
@@ -80,11 +80,11 @@
                 class="item-icon-3"
               />
             </div>
-            <span class="item-name-1"> 烤串 </span>
+            <span class="item-name-1"> {{ $t("food.skewer") }} </span>
           </div>
           <div class="filter-section">
             <span class="item-multiplier-1"> 2.45X </span>
-            <span class="item-status-1"> 已开奖 </span>
+            <span class="item-status-1"> {{ $t("views.lottery.opened") }} </span>
           </div>
         </div>
       </div>

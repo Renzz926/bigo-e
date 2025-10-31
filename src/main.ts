@@ -11,7 +11,7 @@ import pinia from "@/store";
 import "virtual:svg-icons-register";
 import "@/plugins/flexible";
 import "@/plugins/http/axios/fingerPrint";
-// import i18n from "@/i18n";
+import i18n from "@/i18n";
 import { Lazyload } from "vant";
 import { injectVant } from "./plugins/vantComponent";
 
@@ -23,6 +23,7 @@ app.config.globalProperties.$audio = null;
 app
   .use(router)
   .use(pinia)
+  .use(i18n)
   .use(Lazyload, {
     lazyComponent: true,
   })

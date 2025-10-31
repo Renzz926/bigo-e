@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper-5">
-    <span class="download-link-label"> 下载链接 </span>
+    <span class="download-link-label"> {{ $t("views.download.title") }} </span>
     <div class="link-container">
       <div class="link-item">
         <img
@@ -12,7 +12,7 @@
             src="https://mdn.alipayobjects.com/fecodex_image/afts/img/NcWKR4-ZkMcAAAAAMCAAAAgAejH3AQBr/original"
             class="link-indicator"
           />
-          <span class="link-text"> 链接1 </span>
+          <span class="link-text"> {{ $t("views.download.link1") }} </span>
         </div>
       </div>
       <div class="link-item-2">
@@ -25,7 +25,7 @@
             src="https://mdn.alipayobjects.com/fecodex_image/afts/img/NcWKR4-ZkMcAAAAAMCAAAAgAejH3AQBr/original"
             class="link-indicator"
           />
-          <span class="link-text"> 链接2 </span>
+          <span class="link-text"> {{ $t("views.download.link2") }} </span>
         </div>
       </div>
       <div class="link-item-2" style="margin-right: 0">
@@ -38,7 +38,7 @@
             src="https://mdn.alipayobjects.com/fecodex_image/afts/img/NcWKR4-ZkMcAAAAAMCAAAAgAejH3AQBr/original"
             class="link-indicator"
           />
-          <span class="link-text"> 链接3 </span>
+          <span class="link-text"> {{ $t("views.download.link3") }} </span>
         </div>
       </div>
     </div>
@@ -67,21 +67,19 @@ export default {};
 
 .link-container {
   display: flex;
-  flex-direction: row;
-  gap: 12;
   align-items: center;
+  justify-content: space-between;
   margin-top: 8px;
-  margin-right: 2px;
+  overflow-x: auto;
 }
 
 .link-item {
   display: flex;
-  flex: 1;
   flex-direction: row;
   align-items: center;
-  padding: 4px 12px 4px 4px;
-  margin-right: 12px;
+  padding: 4px 8px 4px 4px;
   background-color: #fff;
+  margin-right: 10px;
   border-radius: 6px;
 }
 
@@ -116,11 +114,10 @@ export default {};
 
 .link-item-2 {
   display: flex;
-  flex: 1;
   flex-direction: row;
   align-items: center;
-  padding: 4px 10px 4px 4px;
-  margin-right: 12px;
+  padding: 4px 8px 4px 4px;
+  margin-right: 10px;
   background-color: #fff;
   border-radius: 5px;
 }

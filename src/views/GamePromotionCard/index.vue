@@ -10,7 +10,15 @@
       </div>
       <div class="promotion-content">
         <van-swipe class="my-swipe" :autoplay="2000" indicator-color="#FF5B2B">
-          <van-swipe-item v-for="(item, index) in 4" :key="index"></van-swipe-item>
+          <van-swipe-item v-for="(item, index) in 4" :key="index">
+            <div class="txt1">
+              {{ $t("views.promo.swipeTitle") }}
+              <div class="btn">{{ $t("views.promo.limitedEvent") }}</div>
+            </div>
+            <div class="txt2">
+              {{ $t("views.promo.swipeSubtitle") }}
+            </div>
+          </van-swipe-item>
         </van-swipe>
       </div>
     </div>
@@ -19,7 +27,7 @@
         src="https://mdn.alipayobjects.com/fecodex_image/afts/img/BjLAR70KgkkAAAAAQCAAAAgAejH3AQBr/original"
         class="food-theme-image"
       />
-      <span class="food-theme-description">全新食物主题轮盘上线，更多倍率奖励等你来赢！</span>
+      <span class="food-theme-description">{{ $t("views.promo.foodThemeNotice") }}</span>
     </div>
   </div>
 </template>
@@ -65,23 +73,57 @@ export default {};
   white-space: nowrap;
 }
 
-.promotion-content {
-}
-
 .my-swipe .van-swipe-item {
   height: 160px;
   background: url("../../assets/images/banner.png") no-repeat center;
   background-size: cover;
   position: relative;
-  &::after{
-    content: '';
+  z-index: 1;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    left: 0;
+    bottom: 0;
+    background: url("../../assets/images/mask.png") no-repeat center;
+    background-size: 100% 100%;
+    z-index: 2;
+  }
+  .txt1 {
     position: absolute;
     bottom: 52px;
-    right: 128px;
-    width: 70px;
+    left: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    z-index: 3;
+    display: flex;
+  }
+  .txt2 {
+    position: absolute;
+    bottom: 17px;
+    left: 10px;
+    font-size: 12px;
+    color: #fff;
+    z-index: 3;
+    max-width: 80%;
+  }
+  .btn {
+    // z-index: 4;
+    // position: absolute;
+    // bottom: 52px;
+    padding:0 18px 0 4px;
+    margin-left: 4px;
+    // right: 128px;
+    width: auto;
     height: 20px;
-    background: url('../../assets/images/btn.png') no-repeat center;
+    background: url("../../assets/images/btn.png") no-repeat center;
     background-size: 100% 100%;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    color: #fff;
   }
 }
 .title-section {
@@ -124,8 +166,7 @@ export default {};
 .food-theme-section {
   display: flex;
   align-items: center;
-  height: 28px;
-  padding-left: 14px;
+  padding: 5px 5px 5px 14px;
   background-color: #fff5e6;
   border-radius: 2px;
 }

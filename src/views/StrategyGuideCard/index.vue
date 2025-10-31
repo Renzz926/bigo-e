@@ -1,46 +1,41 @@
 <template>
   <div class="wrapper-4">
     <div class="strategy-guide-header">
-      <span class="hot-strategies-title"> 热门攻略 </span>
+      <span class="hot-strategies-title"> {{ $t("views.strategy.hot") }} </span>
       <div class="header-actions">
-        <span class="all-strategies-link"> 全部 </span>
+        <span class="all-strategies-link"> {{ $t("common.all") }} </span>
         <img
           src="https://mdn.alipayobjects.com/fecodex_image/afts/img/P6f7SYpd1TAAAAAAHJAAAAgAejH3AQBr/original"
           class="arrow-icon"
         />
       </div>
     </div>
-    <div class="strategy-list">
+
+    <div class="strategy-list-2">
       <div class="strategy-item">
-        <div class="strategy-content">
-          <img
-            src="https://mdn.alipayobjects.com/fecodex_image/afts/img/5bApSYFfwk0AAAAAQBAAAAgAejH3AQBr/original"
-            class="strategy-thumbnail"
-          />
-          <div class="strategy-text">
-            <span class="strategy-title"> GREEDY食物选择策 </span>
-            <span class="strategy-title"> 略</span>
-          </div>
-        </div>
-        <img
-          src="https://mdn.alipayobjects.com/fecodex_image/afts/img/BNGfRIuj-m4AAAAAQCAAAAgAejH3AQBr/original"
-          class="strategy-bookmark"
-        />
-      </div>
-      <div class="strategy-item-2">
-        <div class="strategy-content">
+        <div class="strategy-content-3">
           <img
             src="https://mdn.alipayobjects.com/fecodex_image/afts/img/qToyQ7fls5gAAAAAQBAAAAgAejH3AQBr/original"
             class="strategy-thumbnail"
           />
-          <div class="strategy-text">
-            <span class="strategy-title-2"> CATOR DOG倍率分 </span>
-            <span class="strategy-title-2"> 析</span>
-          </div>
+          <span class="strategy-title-3"> {{ $t("views.strategy.greedyFoodStrategy") }} </span>
+        </div>
+        <img
+          src="https://mdn.alipayobjects.com/fecodex_image/afts/img/BNGfRIuj-m4AAAAAQCAAAAgAejH3AQBr/original"
+          class="strategy-bookmark-3"
+        />
+      </div>
+      <div class="strategy-item-4">
+        <div class="strategy-content-4">
+          <img
+            src="https://mdn.alipayobjects.com/fecodex_image/afts/img/qToyQ7fls5gAAAAAQBAAAAgAejH3AQBr/original"
+            class="strategy-thumbnail"
+          />
+          <span class="strategy-description"> {{ $t("views.strategy.catOrDogOddsAnalysis") }} </span>
         </div>
         <img
           src="https://mdn.alipayobjects.com/fecodex_image/afts/img/Os2-Q5KaF88AAAAAQCAAAAgAejH3AQBr/original"
-          class="strategy-bookmark-2"
+          class="strategy-bookmark-3"
         />
       </div>
     </div>
@@ -51,10 +46,7 @@
             src="https://mdn.alipayobjects.com/fecodex_image/afts/img/qToyQ7fls5gAAAAAQBAAAAgAejH3AQBr/original"
             class="strategy-thumbnail"
           />
-          <span class="strategy-title-3">
-            Ele-Family Games最佳阵容
-            <div />
-          </span>
+          <span class="strategy-title-3"> {{ $t("views.strategy.eleFamilyBestLineup") }} </span>
         </div>
         <img
           src="https://mdn.alipayobjects.com/fecodex_image/afts/img/f95MSLhISe8AAAAAQCAAAAgAejH3AQBr/original"
@@ -67,10 +59,7 @@
             src="https://mdn.alipayobjects.com/fecodex_image/afts/img/qToyQ7fls5gAAAAAQBAAAAgAejH3AQBr/original"
             class="strategy-thumbnail"
           />
-          <span class="strategy-description">
-            Ele-Family Games最佳阵容，超详细...
-            <div />
-          </span>
+          <span class="strategy-description"> {{ $t("views.strategy.eleFamilyBestLineupDetail") }} </span>
         </div>
         <img
           src="https://mdn.alipayobjects.com/fecodex_image/afts/img/yHO8TY7IqmYAAAAAQCAAAAgAejH3AQBr/original"
